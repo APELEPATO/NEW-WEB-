@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Audiowide', cursive; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .glitch-wrapper { position: relative; }
+        .glitch-text { font-size: 10vw; color: #fff; position: relative; animation: glitch-main 5s infinite linear; }
+        .glitch-text::before, .glitch-text::after {
+            content: 'Free Fire';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+            overflow: hidden;
+        }
+        .glitch-text::before {
+            color: cyan;
+            animation: glitch-1 2s infinite linear reverse;
+        }
+        .glitch-text::after {
+            color: red;
+            animation: glitch-2 2s infinite linear reverse;
+        }
+
+        @keyframes glitch-main {
+            0% { transform: skewX(0deg); } 2% { transform: skewX(3deg); } 3% { transform: skewX(0deg); }
+            40% { transform: skewX(0deg); } 42% { transform: skewX(-5deg); } 43% { transform: skewX(0deg); }
+            60% { transform: skewX(0deg); } 62% { transform: skewX(8deg); } 63% { transform: skewX(0deg); }
+            100% { transform: skewX(0deg); }
+        }
+        @keyframes glitch-1 {
+            0% { clip-path: inset(3% 0 5% 0); transform: translate(-0.05em, 0); }
+            20% { clip-path: inset(80% 0 10% 0); transform: translate(0.05em, 0); }
+            40% { clip-path: inset(45% 0 40% 0); transform: translate(-0.02em, 0); }
+            60% { clip-path: inset(90% 0 2% 0); transform: translate(0.08em, 0); }
+            80% { clip-path: inset(25% 0 60% 0); transform: translate(-0.05em, 0); }
+            100% { clip-path: inset(3% 0 5% 0); transform: translate(0.02em, 0); }
+        }
+        @keyframes glitch-2 {
+            0% { clip-path: inset(20% 0 70% 0); transform: translate(0.03em, 0); }
+            20% { clip-path: inset(10% 0 5% 0); transform: translate(-0.03em, 0); }
+            40% { clip-path: inset(55% 0 20% 0); transform: translate(0.06em, 0); }
+            60% { clip-path: inset(5% 0 90% 0); transform: translate(-0.04em, 0); }
+            80% { clip-path: inset(70% 0 10% 0); transform: translate(0.02em, 0); }
+            100% { clip-path: inset(20% 0 70% 0); transform: translate(-0.06em, 0); }
+        }
+
+        .back-button { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); color: #fff; background: rgba(255,255,255,0.1); border: 1px solid #fff; padding: 10px 20px; border-radius: 10px; text-decoration: none; transition: background 0.3s; }
+        .back-button:hover { background: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+    <div class="glitch-wrapper">
+        <div class="glitch-text">Free Fire</div>
+    </div>
+    <a href="index.html" class="back-button">Go Back</a>
+</body>
+</html>
