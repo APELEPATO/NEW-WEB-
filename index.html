@@ -16,43 +16,32 @@
         body {
             margin: 0;
             font-family: 'Orbitron', sans-serif;
-            background-color: #000;
             color: #E0E0E0;
+            /* The new background is applied here */
+            background: #000;
             overflow-x: hidden;
         }
 
-        /* --- Animated Background --- */
-        #animated-background {
+        /* --- New Aurora Animated Background --- */
+        #aurora-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
+            background: linear-gradient(45deg, #020024 0%, #090979 35%, #00d4ff 100%);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            opacity: 0.6;
         }
 
-        @keyframes move {
-            100% { transform: translate3d(0, 0, 1px) rotate(360deg); }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .background-shape {
-            position: absolute;
-            display: block;
-            list-style: none;
-            width: 20px;
-            height: 20px;
-            background: rgba(173, 216, 230, 0.2);
-            animation: move 25s linear infinite;
-            bottom: -150px;
-            border-radius: 50%;
-        }
-        .background-shape:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
-        .background-shape:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
-        .background-shape:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
-        .background-shape:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
-        .background-shape:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
-        .background-shape:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
 
         /* --- Reusable Neon/RGB Classes --- */
         .neon-text {
@@ -76,7 +65,7 @@
             height: 100vh;
             width: 100%;
             position: fixed;
-            background-color: #000;
+            background-color: transparent;
             z-index: 100;
             transition: opacity 1.5s ease-in-out;
         }
@@ -99,7 +88,9 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 40px;
+            /* More aggressive padding to ensure it's visible */
+            padding: 20px 8%; 
+            box-sizing: border-box;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -132,21 +123,21 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 80vh;
-            padding: 40px 20px;
+            /* Reduced padding for less space between sections */
+            padding: 60px 20px; 
             text-align: center;
         }
         .section-title {
             font-family: 'Audiowide', cursive;
             font-size: 3em;
-            margin-bottom: 50px;
+            margin-bottom: 40px; /* Reduced margin */
         }
 
         /* Scroll Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .reveal.visible {
             opacity: 1;
@@ -155,7 +146,8 @@
 
         /* Contact Section */
         .contact-card {
-            background: rgba(10, 10, 10, 0.7);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
             padding: 40px;
             border-radius: 15px;
             border: 1px solid var(--glow-color);
@@ -188,7 +180,8 @@
             justify-content: center;
         }
         .hobby-card {
-            background: rgba(10, 10, 10, 0.7);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
             padding: 30px 40px;
             border-radius: 15px;
             border: 1px solid var(--glow-color);
@@ -243,7 +236,7 @@
             pointer-events: all;
         }
         .modal-content {
-            background: #0a0a0a;
+            background: rgba(10, 10, 10, 0.9);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
@@ -290,7 +283,7 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .section-title { font-size: 2em; }
-            header { padding: 15px 20px; }
+            header { padding: 15px 5%; }
             .profile-header span { display: none; }
             .profile-header img { width: 40px; height: 40px; }
             .contact-item { flex-direction: column; align-items: flex-start; text-align: left; }
@@ -300,14 +293,7 @@
 </head>
 <body>
 
-    <ul id="animated-background">
-        <li class="background-shape"></li>
-        <li class="background-shape"></li>
-        <li class="background-shape"></li>
-        <li class="background-shape"></li>
-        <li class="background-shape"></li>
-        <li class="background-shape"></li>
-    </ul>
+    <div id="aurora-background"></div>
 
     <div id="splash-screen">
         <h1 class="brand-name neon-text rgb-effect">
