@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK677 - Free Fire Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --glow-color: hsl(193, 100%, 50%); --ff-glow-color: hsl(320, 100%, 50%); }
+        body { margin: 0; font-family: 'Orbitron', sans-serif; color: #E0E0E0; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        #aurora-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(45deg, #020024 0%, #3e012f 35%, #ff007f 100%); background-size: 400% 400%; animation: gradient-animation 15s ease infinite; opacity: 0.8; }
+        @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        .container { text-align: center; position: relative; }
+        .blast-effect { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,122,0,1) 50%, rgba(255,0,127,0) 70%); border-radius: 50%; transform: translate(-50%, -50%) scale(0); animation: blast 0.8s ease-out forwards; }
+        @keyframes blast { to { transform: translate(-50%, -50%) scale(50); opacity: 0; } }
+        
+        .profile-info { opacity: 0; animation: fadeIn 1s ease-out 0.5s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        .profile-name { font-family: 'Audiowide', cursive; font-size: 8vw; color: #fff; text-shadow: 0 0 10px var(--ff-glow-color), 0 0 40px var(--ff-glow-color); }
+        .profile-uid { font-size: 3vw; color: #eee; margin-top: 10px; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 10px; border: 1px solid var(--ff-glow-color); }
+
+        .back-button { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); color: #fff; background: rgba(255,255,255,0.1); border: 1px solid #fff; padding: 10px 20px; border-radius: 10px; text-decoration: none; transition: background 0.3s; }
+        .back-button:hover { background: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+    <div id="aurora-background"></div>
+    <div class="blast-effect"></div>
+    <div class="container">
+        <div class="profile-info">
+            <h1 class="profile-name">MK677</h1>
+            <p class="profile-uid">UID: 760595074</p>
+        </div>
+    </div>
+    <a href="index.html" class="back-button">Go Back</a>
+</body>
+</html>
